@@ -7,6 +7,7 @@ Update clientAddress and serverAddress to the IPv4/IPv6 of your client and serve
 <br>
 Remove 1st line defining **package name** from both file if server and client are on two different system.
 <br>
-```
+
+<code>
 Note: Run UDPServer.java first and then UDPClient.java
-````
+</code>
