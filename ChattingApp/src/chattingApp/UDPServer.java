@@ -15,11 +15,11 @@ public class UDPServer {
 		byte reply[] = new byte[1024];
 
 		// Getting Client's host address using Wireless LAN adapter Wi-Fi IPv4 Address
-		InetAddress clientAddress = InetAddress.getByName("10.52.232.110"); // Afsar's address -- 10.52.232.110, piku--
+		InetAddress clientAddress = InetAddress.getByName("192.168.1.7"); // abc's address -- 10.52.232.110, piku--
 																			// 192.168.20.117
 
 		// Getting Server's host address using Wireless LAN adapter Wi-Fi IPv4 Address
-		InetAddress serverAddress = InetAddress.getByName("10.52.234.52"); // Jd's Address -- 10.52.234.52
+		InetAddress serverAddress = InetAddress.getByName("192.168.1.7"); // Jd's Address -- 10.52.234.52
 
 		// creating datapacket to receive msg from Client
 		DatagramPacket dpToReceive = new DatagramPacket(msg, msg.length);
@@ -57,12 +57,14 @@ public class UDPServer {
 
 			// Printing data from Client
 			System.out.print("\nMessage: " + str);
-
-			// Giving space to Server to write msg
-			System.out.print("\nReply: ");
-
+			
 			// Reading msg from Console
 			replyStr = sc.nextLine();
+
+			if (!replyStr.trim().equalsIgnoreCase("BYE")) {
+				// Giving space to Server to write msg
+				System.out.print("\nReply: ");
+			}
 
 			// firstly flush previous data from buffer
 			Arrays.fill(reply, (byte) 0);
@@ -76,8 +78,8 @@ public class UDPServer {
 			// Using serverSocket and sending the packet to Client.
 			ds.send(dpToSend);
 
-		} while (!replyStr.trim().equalsIgnoreCase("exit")); // Above steps will be repeated till the time user is
-																// giving inputs through
+		} while (!replyStr.trim().equalsIgnoreCase("BYE")); // Above steps will be repeated till the time user is
+															// giving inputs through
 		// console
 
 		// Closing all the resources
