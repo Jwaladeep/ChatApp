@@ -13,11 +13,11 @@ public class UDPClient {
 		byte msg[] = new byte[1024];
 		byte reply[] = new byte[1024];
 		// Getting Client's host address using Wireless LAN adapter Wi-Fi IPv4 Address
-		InetAddress clientAddress = InetAddress.getByName("10.52.232.110"); // Afsar's address -- 10.52.232.110, piku--
+		InetAddress clientAddress = InetAddress.getByName("192.168.1.7"); // abc's address -- 10.52.232.110, piku--
 																			// 192.168.20.117
-
+	
 		// Getting Server's host address using Wireless LAN adapter Wi-Fi IPv4 Address
-		InetAddress serverAddress = InetAddress.getByName("10.52.234.52"); // Jd's Address -- 10.52.234.52
+		InetAddress serverAddress = InetAddress.getByName("192.168.1.7"); // Jd's Address -- 10.52.234.52
 
 		// creating datapacket to receive msg from Server
 		DatagramPacket dpToReceive = new DatagramPacket(msg, msg.length);
@@ -71,7 +71,7 @@ public class UDPClient {
 			System.out.print("\nMessage: " + str);
 			System.out.print("\nReply: ");
 
-		} while (!replyStr.trim().equalsIgnoreCase("exit")); // above process is repeated till the client is giving
+		} while (!replyStr.trim().equalsIgnoreCase("BYE")); // above process is repeated till the client is giving
 		// inputs/reply
 		sc.close();
 		ds.close();
