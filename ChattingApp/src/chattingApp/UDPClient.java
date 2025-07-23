@@ -75,6 +75,7 @@ public class UDPClient {
 		// inputs/reply
 		sc.close();
 		ds.close();
+		//this change was made by khushi
 
 	}
 }
